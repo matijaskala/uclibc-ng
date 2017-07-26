@@ -40,6 +40,7 @@ choice
 	default TARGET_sparc if DESIRED_TARGET_ARCH = "sparc"
 	default TARGET_sparc64 if DESIRED_TARGET_ARCH = "sparc64"
 	default TARGET_x86_64 if DESIRED_TARGET_ARCH = "x86_64"
+	default TARGET_x32 if DESIRED_TARGET_ARCH = "x32"
 	default TARGET_xtensa if DESIRED_TARGET_ARCH = "xtensa"
 	help
 	  The architecture of your target.
@@ -123,6 +124,9 @@ config TARGET_sparc64
 
 config TARGET_x86_64
 	bool "x86_64"
+
+config TARGET_x32
+	bool "x32"
 
 config TARGET_xtensa
 	bool "xtensa"
@@ -226,6 +230,10 @@ endif
 
 if TARGET_x86_64
 source "extra/Configs/Config.x86_64"
+endif
+
+if TARGET_x32
+source "extra/Configs/Config.x32"
 endif
 
 if TARGET_xtensa
